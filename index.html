@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+	<title>Champion Analysis</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+		<h2>Starcraft Profile Analyzer</h2>
+		<form class="js-search">
+			<input type="text" name="summoner" placeholder="Summoner Name" id="summoner-input" required>
+			<input type="text" name="champion" placeholder="Champion" id="champion-input" required>
+			<input type="number" name="matches" placeholder="Most Recent Games" id="recent-matches" required min="1">
+			<select name="servers" id="server-value">
+				<option value="br1">Brazil</option>
+				<option value="eun1">Europe Nordic & East</option>
+				<option value="eu1">Europe West</option>
+				<option value="la1">Latin America North</option>
+				<option value="la2">Latin America South</option>
+				<option value="na1">North America</option>
+				<option value="oc1">Oceania</option>
+				<option value="ru">Russia</option>
+				<option value="tr1">Turkey</option>
+				<option value="jp1">Japan</option>
+				<option value="kr">Republic of Korea</option>
+				<option value="pbe1">Public Beta Environment</option>
+			</select>
+			<input type="submit" name="submit-button" id="submit-button">
+		</form>
+		<div class="results">
+		</div>
+	</div>
+
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>

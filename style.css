@@ -1,0 +1,14 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	justify-content: center, space-around;
+	flex-direction: column;
+	text-align: center;
+}
+
+.hidden {
+	display: none;
+}
