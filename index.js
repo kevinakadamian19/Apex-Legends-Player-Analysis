@@ -1,6 +1,6 @@
 'use-strict';
 
-apiKey = 'RGAPI-54f138c3-7bce-413e-9701-85fdb504dd4e'
+apiKey = '30606dfd-770c-450d-a6ae-2a51ff66d915'
 
 function formatQuery(params) {
 	const queryItems = Object.keys(params)
@@ -9,22 +9,24 @@ function formatQuery(params) {
 }
 
 function getSummonerData() {
-	const regionSelected = $('#server-value').val();
-	console.log(regionSelected);
-	const regionUrl = `https://${regionSelected}.battle.net/oauth/authorize`;
-
-	const summonerName = $('#summoner-input').val();
-	console.log(summonerName);
-	const summonerUrl = `/lol/summoner/v4/summoners/by-name/${summonerName}`;
+	const platformSelected = $('#server-value').val();
+	const baseUrl = `https://public-api.tracker.gg/v2/apex/standard/search`;
+	const userName = $('#user-input').val();
 
 	const params = {
-		"api_key": apiKey
+		platform: platformSelected,
+		query: userName
+	};
+
+	const options = {
+		headers: new Headers({
+			"TRN-Api-Key": apiKey})
 	};
 
 	const queryString = formatQuery(params);
-	const url = regionUrl + summonerUrl + '?' + queryString;
+	const url = baseUrl + '?' + queryString;
 
-fetch(url)
+	fetch(url, options)
 		.then(response => {
 			if(response.ok) {
 				return response.json();
@@ -48,13 +50,3 @@ function renderApp() {
 }
 
 renderApp();
-
-/*fetch(url)
-		.then(response => {
-			if(response.ok) {
-				return response.json();
-			}
-			throw new Error('There was an error with entry')
-			})
-		.then(response.Json => console.log(responseJson))
-		.catch(error => alert('Something went wrong with one of the promises.')) */

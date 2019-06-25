@@ -9,24 +9,13 @@
 </head>
 <body>
 	<div class="container">
-		<h2>Starcraft Profile Analyzer</h2>
+		<h2>Apex Legends Profile Analyzer</h2>
 		<form class="js-search">
-			<input type="text" name="summoner" placeholder="Summoner Name" id="summoner-input" required>
-			<input type="text" name="champion" placeholder="Champion" id="champion-input" required>
-			<input type="number" name="matches" placeholder="Most Recent Games" id="recent-matches" required min="1">
-			<select name="servers" id="server-value">
-				<option value="br1">Brazil</option>
-				<option value="eun1">Europe Nordic & East</option>
-				<option value="eu1">Europe West</option>
-				<option value="la1">Latin America North</option>
-				<option value="la2">Latin America South</option>
-				<option value="na1">North America</option>
-				<option value="oc1">Oceania</option>
-				<option value="ru">Russia</option>
-				<option value="tr1">Turkey</option>
-				<option value="jp1">Japan</option>
-				<option value="kr">Republic of Korea</option>
-				<option value="pbe1">Public Beta Environment</option>
+			<input type="text" name="summoner" placeholder="Battlenet/User ID" id="user-input" required>
+			<select name="platform" id="server-value">
+				<option value="xbl">Xbox</option>
+				<option value="psn">Playstation</option>
+				<option value="battlenet">PC</option>
 			</select>
 			<input type="submit" name="submit-button" id="submit-button">
 		</form>
