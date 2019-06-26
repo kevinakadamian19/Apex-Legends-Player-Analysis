@@ -1,6 +1,6 @@
 'use-strict';
 
-apiKey = '30606dfd-770c-450d-a6ae-2a51ff66d915'
+apiKey = 'RGAPI-2882c2ec-72ba-4cb4-b5c8-fe89a2bf7f53'
 
 function formatQuery(params) {
 	const queryItems = Object.keys(params)
@@ -9,24 +9,26 @@ function formatQuery(params) {
 }
 
 function getSummonerData() {
-	const platformSelected = $('#server-value').val();
-	const baseUrl = `https://public-api.tracker.gg/v2/apex/standard/search`;
-	const userName = $('#user-input').val();
+	const regionSelected = $('#server-value').val();
+	console.log(regionSelected);
+	const regionUrl = `https://${regionSelected}.api.riotgames.com`;
+
+	const summonerName = $('#summoner-input').val();
+	console.log(summonerName);
+	const summonerUrl = `/lol/summoner/v4/summoners/by-name/${summonerName}`;
 
 	const params = {
-		platform: platformSelected,
-		query: userName
+		"api_key": apiKey
 	};
-
 	const options = {
-		headers: new Headers({
-			"TRN-Api-Key": apiKey})
+		header: new Headers({
+			"api_key": apiKey})
 	};
 
 	const queryString = formatQuery(params);
-	const url = baseUrl + '?' + queryString;
+	const url = regionUrl + summonerUrl + '?' + queryString;
 
-	fetch(url, options)
+fetch(url, options)
 		.then(response => {
 			if(response.ok) {
 				return response.json();
@@ -50,3 +52,13 @@ function renderApp() {
 }
 
 renderApp();
+
+/*fetch(url)
+		.then(response => {
+			if(response.ok) {
+				return response.json();
+			}
+			throw new Error('There was an error with entry')
+			})
+		.then(response.Json => console.log(responseJson))
+		.catch(error => alert('Something went wrong with one of the promises.')) */
