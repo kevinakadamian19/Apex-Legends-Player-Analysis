@@ -22,7 +22,8 @@ function getSummonerData() {
 	};
 	const options = {
 		header: new Headers({
-			"api_key": apiKey})
+			"api_key": apiKey,
+			})
 	};
 
 	const queryString = formatQuery(params);
