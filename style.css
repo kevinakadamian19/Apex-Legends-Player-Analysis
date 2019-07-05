@@ -1,14 +1,16 @@
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-	display: flex;
-	justify-content: center, space-around;
-	flex-direction: column;
-	text-align: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center, space-around;
 }
 
-.hidden {
-	display: none;
+.conatiner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }

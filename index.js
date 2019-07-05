@@ -1,6 +1,6 @@
 'use-strict';
 
-apiKey = 'RGAPI-2882c2ec-72ba-4cb4-b5c8-fe89a2bf7f53'
+const baseUrl = "https://api.magicthegathering.io/v1/cards"
 
 function formatQuery(params) {
 	const queryItems = Object.keys(params)
@@ -8,58 +8,59 @@ function formatQuery(params) {
 		return queryItems.join('&');
 }
 
-function getSummonerData() {
-	const regionSelected = $('#server-value').val();
-	console.log(regionSelected);
-	const regionUrl = `https://${regionSelected}.api.riotgames.com`;
+function callToApi() {
+    const cardName = $('#card-input').val();
+    const cardNameArray = cardName.split(",");
 
-	const summonerName = $('#summoner-input').val();
-	console.log(summonerName);
-	const summonerUrl = `/lol/summoner/v4/summoners/by-name/${summonerName}`;
+    const params = {
+        'name': cardNameArray
+    }
 
-	const params = {
-		"api_key": apiKey
-	};
-	const options = {
-		header: new Headers({
-			"api_key": apiKey,
-			})
-	};
+    const queryString = formatQuery(params);
+    const url = baseUrl + '?' + queryString;
 
-	const queryString = formatQuery(params);
-	const url = regionUrl + summonerUrl + '?' + queryString;
-
-fetch(url, options)
-		.then(response => {
-			if(response.ok) {
-				return response.json();
-			}
-			throw new Error(response.statusText);
-		})
-		.then(responseJson => console.log(responseJson))
-		.catch(err => alert('Something is wrong.'));
+    fetch(url)
+        .then(response => {
+            if(response.ok) {
+                return response.json();
+            }
+            throw new Error(response.statusText);
+        })
+        .then(responseJson => displayCards(responseJson))
+        .catch(err => alert('Something went wrong with one of the promises.'));
 }
 
-function watchSubmit() {
-	$('form').submit(event => {
-		event.preventDefault();
-		getSummonerData();
-	});
+function displayCards(responseJson) {
+    console.log(responseJson);
+    $('.results').empty();
+    const cardSearch = responseJson.cards;
+
+    if(cardSearch.length === 0) {
+		$('.results').append(`
+			<h2>Invalid card!</h2>
+			<p>Please enter any part of the card's title followed by a comma.</p>
+            `)
+        }
+    else {
+        for(i = 0;i < cardSearch.length; i++) {
+            $('.results').append(`
+                    <img src="${cardSearch[i].imageUrl}" alt="${cardSearch[i].name}" id="${cardSearch[i].name}">
+                `)};
+        }
 }
 
-function renderApp() {
-	console.log('App is loaded. Waiting for submission!');
-	watchSubmit();
+function watchForSubmit() {
+    $('form').submit(event => {
+        event.preventDefault();
+        callToApi();
+    });
+    
 }
 
-renderApp();
+function renderPage() {
+    console.log('App is loaded. Waiting for submit!')
+    watchForSubmit();
+    
+}
 
-/*fetch(url)
-		.then(response => {
-			if(response.ok) {
-				return response.json();
-			}
-			throw new Error('There was an error with entry')
-			})
-		.then(response.Json => console.log(responseJson))
-		.catch(error => alert('Something went wrong with one of the promises.')) */
+renderPage();
