@@ -33,12 +33,12 @@ function callToApi() {
 function displayCards(responseJson) {
     console.log(responseJson);
     $('.results').empty();
-    const cardSearch = responseJson.cards;
+	const cardSearch = responseJson.cards;
 
     if(cardSearch.length === 0) {
 		$('.results').append(`
-			<h2>Invalid card!</h2>
-			<p>Please enter any part of the card's title followed by a comma.</p>
+			<h2>No card found with that title!</h2>
+			<p>Please enter any part of the card's title(followed by a comma for multiple searches).</p>
             `)
         }
     else {
@@ -49,18 +49,23 @@ function displayCards(responseJson) {
         }
 }
 
+function clearBrokenCards() {
+    const brokenImages = $('.results').children('img');
+    if(brokenImages.attr('src') === "undefined") {
+       
+    }
+}
+
 function watchForSubmit() {
     $('form').submit(event => {
         event.preventDefault();
         callToApi();
-    });
-    
+	});
 }
 
 function renderPage() {
     console.log('App is loaded. Waiting for submit!')
     watchForSubmit();
-    
 }
 
 renderPage();

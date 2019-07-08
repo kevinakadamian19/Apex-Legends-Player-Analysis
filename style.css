@@ -9,8 +9,16 @@ body {
     justify-content: center, space-around;
 }
 
-.conatiner {
+.container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.results img {
+	width: 150px;
+}
+
+#hidden {
+    display: none;
 }
