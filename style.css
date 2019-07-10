@@ -2,6 +2,14 @@
     box-sizing: border-box;
 }
 
+html { 
+    background: url(wallpaper.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
 body {
     text-align: center;
     display: flex;
@@ -9,16 +17,108 @@ body {
     justify-content: center, space-around;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+@media screen and (max-width: 800px) {
+
+    .container {
+        font-family: 'Armata', sans-serif;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .results img {
+        width: 200px;
+    }
+
+    .undefined {
+        display: none;
+    }
+
+    .welcome {
+        border: solid lightgrey 3px;
+        margin: 10px;
+        padding: 2px;
+        border-radius: 15px;
+
+    }
+
+    .card {
+        border: solid lightgrey 3px;
+        border-radius: 15px;
+        margin: 10px;
+        padding: 5px;
+
+    }
+
+    .card h2 {
+        font-family: 'Noto Serif JP', serif;
+    }
+
+    .card img {
+
+    }
+
+    .card ul {
+
+    }
+
+    .card li{
+        font-family: 'Martel', serif;
+        list-style: none;
+        font-size: 14px;
+    }
+
 }
 
-.results img {
-	width: 150px;
-}
+@media screen and (min-width: 801px) {
 
-#hidden {
-    display: none;
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-family: 'Armata', sans-serif;
+        color: white;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .results {
+        display: inline-block;
+    }
+
+    .results img {
+        width: 200px;
+    }
+
+    .welcome {
+        border: solid lightgrey 3px;
+        margin: 10px;
+        padding: 2px;
+        border-radius: 15px;
+        opacity: .7;
+
+    }
+
+    .undefined {
+        display: none;
+    }
+    .card {
+        border: solid lightgrey 3px;
+        border-radius: 15px;
+        margin: 10px;
+        padding: 5px;
+        width: 50%;
+    }
+
+    .card h2 {
+        font-family: 'Noto Serif JP', serif;
+    }
+
+    .card li{
+        font-family: 'Martel', serif;
+        list-style: none;
+        font-size: 14px;
+    }
+
 }

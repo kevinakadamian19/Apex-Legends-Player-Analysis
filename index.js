@@ -33,28 +33,32 @@ function callToApi() {
 function displayCards(responseJson) {
     console.log(responseJson);
     $('.results').empty();
-	const cardSearch = responseJson.cards;
+    const cardSearch = responseJson.cards.filter(card => Object.keys(card).includes("imageUrl"));
+    console.log(cardSearch); 
 
     if(cardSearch.length === 0) {
-		$('.results').append(`
-			<h2>No card found with that title!</h2>
-			<p>Please enter any part of the card's title(followed by a comma for multiple searches).</p>
+        $('.results').append(`
+            <div class="unknown-search">
+			    <h2>No card found with that title!</h2>
+			    <p>Please enter any part of the card's title(followed by a comma for multiple searches).</p>
+            </div>
             `)
         }
     else {
         for(i = 0;i < cardSearch.length; i++) {
             $('.results').append(`
+                <div class="card">
+                    <h2>${cardSearch[i].name}</h2>
                     <img src="${cardSearch[i].imageUrl}" alt="${cardSearch[i].name}" id="${cardSearch[i].name}">
-                `)};
+                    <ul>
+		                <li>Rarity: ${cardSearch[i].rarity} </li>
+                        <li>Set Name: ${cardSearch[i].setName}</li>
+	                </ul>
+                </div>
+             `)};
         }
 }
 
-function clearBrokenCards() {
-    const brokenImages = $('.results').children('img');
-    if(brokenImages.attr('src') === "undefined") {
-       
-    }
-}
 
 function watchForSubmit() {
     $('form').submit(event => {

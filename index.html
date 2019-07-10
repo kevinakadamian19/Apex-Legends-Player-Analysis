@@ -5,19 +5,25 @@
     <meta name="viewport" content="width=device-width">
 	<title>MTG Search Engine</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Martel&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Armata|Noto+Serif+JP&display=swap" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="container">
-		<h2>MTG Search Engine</h2>
+		<h1>MTG Search Engine</h1>
 		<form class="js-search">
 			<input type="text" name="summoner" placeholder="Search Card Title" id="card-input" required>
 			<input type="submit" name="submit-button" id="submit-button">
 		</form>
+		<div class="welcome">
+				<h2>Welcome!</h2>
+				<p>Enter a card name to search for.</p>
+				<p>Entering part of a card name will return all cards with the same wording in the title.</p>
+		</div>
 		<div class="results">
 		</div>
-    </div>
-
+	</div>
 	<script type="text/javascript" src="index.js"></script>
 </body>
 </html>
