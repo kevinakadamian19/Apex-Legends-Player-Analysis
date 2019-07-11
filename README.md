@@ -13,10 +13,13 @@ Results page:
 
  
 Built With
-Front-End
+
 •	Javascript
+
 •	HTML
+
 •	CSS
+
 •	jQuery Library
 
 Features
