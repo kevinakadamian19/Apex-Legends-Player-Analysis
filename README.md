@@ -12,7 +12,7 @@ Results page:
 ![image](https://user-images.githubusercontent.com/18197040/61090002-db1bf880-a3f1-11e9-8736-8c78304d8dd0.png)
 
  
-Built With
+Built With:
 
 •	Javascript
 
@@ -23,10 +23,13 @@ Built With
 •	jQuery Library
 
 Features
+
 •	Search for cards with similar title
 
 Demo
+
 •	Live Demo: https://kevinakadamian19.github.io/MTG-Card-Generator/
 
 API
+
 •	https://docs.magicthegathering.io/
