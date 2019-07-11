@@ -2,12 +2,14 @@
 
 const baseUrl = "https://api.magicthegathering.io/v1/cards"
 
+//This function is for formatting the parameters to for the query string.
 function formatQuery(params) {
 	const queryItems = Object.keys(params)
 		.map(key => `${key}=${params[key]}`)
 		return queryItems.join('&');
 }
 
+//This function makes a call to the API with the given parameters.
 function callToApi() {
     const cardName = $('#card-input').val();
     const cardNameArray = cardName.split(",");
@@ -30,6 +32,7 @@ function callToApi() {
         .catch(err => alert('Something went wrong with one of the promises.'));
 }
 
+//This function displays the results to the DOM by running a FOR ... loop.
 function displayCards(responseJson) {
     console.log(responseJson);
     $('.results').empty();
@@ -62,35 +65,7 @@ function displayCards(responseJson) {
         }
 }
 
-/*const youtubeUrl = 'https://www.googleapis.com/youtube/v3/search'
-
-function callToYoutube() {
-    const set = 'Dark Ascension Trailer';
-
-    const params = {
-        'part': 'snippet',
-        'maxResults': 1,
-        'q': set,
-        'key': 'AIzaSyDdmw9f0-8ZxvCrU6rMBgHXqXhHmtIjuTU'
-    }
-
-    const queryString = formatQuery(params);
-    const videoUrl = youtubeUrl + '?' + queryString;
-
-    fetch(videoUrl)
-        .then(response => {
-            if(response.ok) {
-                return response.json();
-            }
-            throw new Error(response.statusText);
-        })
-        .then(responseJson => console.log(responseJson))
-        .catch(err => alert('Something went wrong with one of the promises.'));
-
-}*/
-
-
-
+//This function waits for user to submit input. Then runs callToApi() function.
 function watchForSubmit() {
     $('form').submit(event => {
         event.preventDefault();
@@ -98,6 +73,7 @@ function watchForSubmit() {
 	});
 }
 
+//This function is for rendering the Javascript code on the HTML page.
 function renderPage() {
     console.log('App is loaded. Waiting for submit!')
     watchForSubmit();
