@@ -40,24 +40,55 @@ function displayCards(responseJson) {
         $('.results').append(`
             <div class="unknown-search">
 			    <h2>No card found with that title!</h2>
-			    <p>Please enter any part of the card's title(followed by a comma for multiple searches).</p>
+			    <p>Please enter any part of the card's title(followed by a comma for multiple searches.</p>
             </div>
             `)
         }
     else {
         for(i = 0;i < cardSearch.length; i++) {
             $('.results').append(`
+            <div class="result-box">
+                <h2>${cardSearch[i].name}</h2>
                 <div class="card">
-                    <h2>${cardSearch[i].name}</h2>
                     <img src="${cardSearch[i].imageUrl}" alt="${cardSearch[i].name}" id="${cardSearch[i].name}">
                     <ul>
-		                <li>Rarity: ${cardSearch[i].rarity} </li>
+                        <li>Rarity: ${cardSearch[i].rarity} </li>
                         <li>Set Name: ${cardSearch[i].setName}</li>
+                        <li>Card Description: "${cardSearch[i].text}"</li>
 	                </ul>
                 </div>
+            </div>
              `)};
         }
 }
+
+/*const youtubeUrl = 'https://www.googleapis.com/youtube/v3/search'
+
+function callToYoutube() {
+    const set = 'Dark Ascension Trailer';
+
+    const params = {
+        'part': 'snippet',
+        'maxResults': 1,
+        'q': set,
+        'key': 'AIzaSyDdmw9f0-8ZxvCrU6rMBgHXqXhHmtIjuTU'
+    }
+
+    const queryString = formatQuery(params);
+    const videoUrl = youtubeUrl + '?' + queryString;
+
+    fetch(videoUrl)
+        .then(response => {
+            if(response.ok) {
+                return response.json();
+            }
+            throw new Error(response.statusText);
+        })
+        .then(responseJson => console.log(responseJson))
+        .catch(err => alert('Something went wrong with one of the promises.'));
+
+}*/
+
 
 
 function watchForSubmit() {

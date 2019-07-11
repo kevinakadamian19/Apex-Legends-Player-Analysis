@@ -10,63 +10,77 @@ html {
     background-size: cover;
   }
 
-body {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center, space-around;
-}
-
 @media screen and (max-width: 800px) {
 
     .container {
-        font-family: 'Armata', sans-serif;
-        color: white;
+        text-align: center;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: center, space-between;
+        font-family: 'Armata', sans-serif;
+        color: white;
+        text-shadow: 1px 1px grey;
+        
     }
 
-    .results img {
-        width: 200px;
-    }
-
-    .undefined {
-        display: none;
-    }
-
-    .welcome {
-        border: solid lightgrey 3px;
-        margin: 10px;
+    h1, h2 {
+        background: rgb(46, 106, 134);
         padding: 2px;
-        border-radius: 15px;
-
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .card {
-        border: solid lightgrey 3px;
-        border-radius: 15px;
-        margin: 10px;
+    #card-input {
+        border-radius: 5px;
+        font-family: 'Armata', sans-serif;
         padding: 5px;
 
     }
 
+    #submit-button {
+        border-radius: 5px;
+        padding: 5px;
+        font-family: 'Armata', sans-serif;
+    }
+
+    .welcome {
+        margin: 10px;
+        padding: 2px;
+        background: rgb(46, 106, 134);
+        opacity: .9;
+    }
+
+    .card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        padding: 5px;
+        background: rgb(46, 106, 134);
+        opacity: .9;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
     .card h2 {
         font-family: 'Noto Serif JP', serif;
+        
     }
 
     .card img {
-
+        width: 150px;
+        
     }
 
     .card ul {
-
+        width: 50%;
     }
 
     .card li{
         font-family: 'Martel', serif;
         list-style: none;
         font-size: 14px;
+        text-align: left;
     }
 
 }
@@ -74,51 +88,94 @@ body {
 @media screen and (min-width: 801px) {
 
     .container {
+        text-align: center;
         display: flex;
         flex-direction: column;
         justify-content: center;
         font-family: 'Armata', sans-serif;
         color: white;
-        display: flex;
-        justify-content: space-around;
+        text-shadow: 1px 1px grey;
+        
     }
 
-    .results {
-        display: inline-block;
+    h1, h2 {
+        background: rgb(46, 106, 134);
+        padding: 2px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .results img {
-        width: 200px;
+    #card-input {
+        border-radius: 5px;
+        font-family: 'Armata', sans-serif;
+        padding: 5px;
+
+    }
+
+    #submit-button {
+        border-radius: 5px;
+        padding: 5px;
+        font-family: 'Armata', sans-serif;
     }
 
     .welcome {
-        border: solid lightgrey 3px;
-        margin: 10px;
-        padding: 2px;
-        border-radius: 15px;
-        opacity: .7;
+        background: rgb(46, 106, 134);
+        opacity: .9;
+        margin-left: auto;
+        margin-right: auto;
+        width: 600px;
+    }
+
+    .results {
+        display: flex;
+        flex-wrap: wrap;
 
     }
 
-    .undefined {
-        display: none;
-    }
-    .card {
-        border: solid lightgrey 3px;
-        border-radius: 15px;
-        margin: 10px;
-        padding: 5px;
+    .result-box {
+        display: flex;
+        flex-direction: column;
         width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+    .card {
+        display: flex;
+        justify-content: center, space-around;
+        align-items: center;
+        margin-top: 20px;
+        padding: 5px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .card h2 {
         font-family: 'Noto Serif JP', serif;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+
+    .card img {
+        width: 200px;
+        
+    }
+
+    .card ul {
+        width: 50%;
+        border: 3px solid rgb(46, 106, 134);
+        background: grey;
+        opacity: .9;
+        margin-left: 10px;
     }
 
     .card li{
         font-family: 'Martel', serif;
         list-style: none;
         font-size: 14px;
+        text-align: left;
     }
 
 }
